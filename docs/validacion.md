@@ -13,6 +13,14 @@ La publicación incluye pruebas adicionales del generador estático: lista cerra
 - Las capturas nuevas de escritorio, comparativas y móvil oscuro usan exclusivamente la identidad genérica y datos ficticios. No se incluyeron capturas anteriores.
 - El artefacto estático tiene diez archivos permitidos. Los tests comprueban exclusión de backend/datos privados, resolución de módulos relativos y rechazo de salidas contaminadas. Las sesiones, copias y secretos locales originales quedaron fuera del repositorio nuevo.
 
-La comprobación pública de Pages se registra al finalizar el despliegue.
+## Publicación comprobada
+
+- Repositorio público: [MartnMartnez14/entrenamiento-equino](https://github.com/MartnMartnez14/entrenamiento-equino), rama `main`, licencia MIT.
+- [Pruebas y despliegue inicial](https://github.com/MartnMartnez14/entrenamiento-equino/actions/runs/38297211037): ambos jobs completados correctamente en GitHub Actions.
+- [Demo real en HTTPS](https://martnmartnez14.github.io/entrenamiento-equino/) abierta y verificada el 12/10/2026: inicia sin login, presenta caballos genéricos, permite guardar 1500 m en 1:51, recargar, consultar el historial y ver ese total en evolución. Sin errores de JavaScript observados en esa comprobación.
+- Los diez recursos de Pages se descargaron y compararon byte a byte con sus fuentes locales: todos coinciden. Las rutas de backend, base SQLite, adaptador API y acceso compartido devolvieron 404.
+- Se auditaron los cincuenta archivos versionados: no contienen nombres institucionales del prototipo anterior, bases, secretos, respaldos o archivos de cuentas locales. El sitio publica exclusivamente el artefacto estático; ningún módulo de ese artefacto llama a la API compartida.
+
+Estos resultados corresponden a la entrega comprobada, no garantizan disponibilidad permanente de GitHub ni funcionamiento en dispositivos todavía no ensayados.
 
 No se afirma ensayo en teléfonos físicos, Safari/iOS ni lectores de pantalla. Los tamaños móviles simulados no acreditan esa cobertura. La demo pública no prueba operación multiusuario online: el backend permanece local.
