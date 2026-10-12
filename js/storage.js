@@ -1,0 +1,3 @@
+let db;
+export async function openStore(){db=await new Promise((resolve,reject)=>{const r=indexedDB.open('entrenamiento-equino-demo',1);r.onupgradeneeded=()=>r.result.createObjectStore('state');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});return new Promise((resolve,reject)=>{const r=db.transaction('state').objectStore('state').get('data');r.onsuccess=()=>resolve(r.result);r.onerror=()=>reject(r.error);});}
+export async function saveStore(data){return new Promise((resolve,reject)=>{const tx=db.transaction('state','readwrite');tx.objectStore('state').put(data,'data');tx.oncomplete=resolve;tx.onerror=()=>reject(tx.error);tx.onabort=()=>reject(tx.error||Error('No se pudo guardar.'));});}
